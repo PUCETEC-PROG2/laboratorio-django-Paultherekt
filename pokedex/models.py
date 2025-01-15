@@ -6,7 +6,7 @@ class trainer(models.Model):
     level= models.IntegerField(default=1)
     Birthdate= models.DateField()
 
-        def _str_(self):
+    def _str_(self):
              return f"{self.name} {self.surname}"
     
 class Pokemon (models.Model):
@@ -16,8 +16,8 @@ class Pokemon (models.Model):
    height = models.DecimalField(decimal_places=4, max_digits=6)
    
    
-        def __str__(self):
-            return self.name
+    def __str__(self):
+        return self.name
    
 
 

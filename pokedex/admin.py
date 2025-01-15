@@ -10,3 +10,4 @@ class PokemonAdmin(admin.ModelAdmin):
 @admin.register(trainer)
 class trainerAdmin(admin.ModelAdmin):
     pass
+
