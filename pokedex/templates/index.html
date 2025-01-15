@@ -13,7 +13,7 @@
             <h3>pokemons</h3>
             <ul class="list-group">
 
-                {% for pokemon in pokemons %}
+            
                 <li class="list-group-item">
                     <a href="{{pokemon.name}}">{{ pokemon | capfirst }}</a>
 
@@ -32,7 +32,7 @@
                             <a herf="{{trainer.id}}">{{trainer | capfirst}}</a>
 
                         </li>
-                        {% end for %}
+                        
                     </ul>
 
                 </li>

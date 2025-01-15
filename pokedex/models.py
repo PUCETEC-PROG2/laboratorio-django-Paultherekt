@@ -15,8 +15,7 @@ class Pokemon (models.Model):
    weight = models.DecimalField(decimal_places=4, max_digits=6)
    height = models.DecimalField(decimal_places=4, max_digits=6)
    
-   
-    def __str__(self):
+   def __str__(self):
         return self.name
    
 
