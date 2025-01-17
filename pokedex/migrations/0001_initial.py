@@ -3,6 +3,7 @@
 from django.db import migrations, models
 
 
+
 class Migration(migrations.Migration):
 
     initial = True
@@ -19,6 +20,7 @@ class Migration(migrations.Migration):
                 ('type', models.CharField(max_length=30)),
                 ('weight', models.DecimalField(decimal_places=4, max_digits=6)),
                 ('height', models.DecimalField(decimal_places=4, max_digits=6)),
+                
             ],
         ),
     ]

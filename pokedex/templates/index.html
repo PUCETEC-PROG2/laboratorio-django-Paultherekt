@@ -10,34 +10,33 @@
                 <h1>Mi Pokedex</h1>
             </div>
             <p class="p-2">Hola, este es tu primer sitio en Django</p>
-            <h3>pokemons</h3>
             <ul class="list-group">
-
-            
+                {% for pokemon in pokemons %}
                 <li class="list-group-item">
-                    <a href="{{pokemon.name}}">{{ pokemon | capfirst }}</a>
-
-                    <div>{{pokemon.weight}}</div>
-                    <h3>Detalles de pokemon</h3>
-                    <ul>
-                        <li>nombre:{{Pokemon.name}}</li>
-                        <li>Tipo: {{pokemon.type}}</li>
-                        <li>peso:{{pokemon.weight}}</li>
-                        <li>altura: {{pokemon.height}}</li>
-                    </ul>
-                    <h3>Trainers</h3>
-                    <ul class='list-group'>
-                        {%for trainer in trainers%}
-                        <li class='list-group-item'>
-                            <a herf="{{trainer.id}}">{{trainer | capfirst}}</a>
-
-                        </li>
-                        
-                    </ul>
+                    <a href="{{pokemon}}">{{ pokemon | capfirst }}</a>
+                    <li color:blue {{pokemon.name}}></li>
+                    <li color:blue {{pokemon.type}}></li>
+                    <li color:blue {{pokemon.weight}}></li>
+                    <li color:blue {{pokemon.height}}></li>
+                    <li color:blue {{pokemon.trainer}}></li>
 
                 </li>
                 {% endfor %}
             </ul>
+            <h3>Trainers</h3>
+            <li class="list-group-item">
+                {% for trainer in trainers %}
+                <a href="trainer/{{trainer.id}}">{{ trainer | capfirst }}</a>
+                <ul>
+                    <li color:blue {{trainer.name}}></li>
+                    <li color:blue {{trainer.surname}}></li>
+                    <li color:blue {{trainer.level}}></li>
+                    <li color:blue {{trainer.Birthdate}}></li>
+                </ul>
+    
+            </li>
+            {% endfor %}
         </div>
+        
     </body>
 </html>
