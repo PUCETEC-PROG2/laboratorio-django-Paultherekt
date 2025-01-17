@@ -1,5 +1,44 @@
+{% load static %}
 <html>
     <head>
-        <link rel 
+        <title>{% block title %}{% endblock title %}</title>
+        <link href= "{% static  "bootstrap.min.css" %} rel="stylesheet">
+        <link href="{% static  "custom.css" %}  rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </head>
-</html>
+    <body>
+        <div class="container">
+            <div class="bg-primary text-white p-4 text-center">
+                <img src="{% static "pokemon_title.png" %} alt="Pokemon_logo"></img> 
+            </div>
+            <p class="p-2">Hola, este es tu primer sitio en Django</p>
+            <ul class="list-group">
+                {% for pokemon in pokemons %}
+                <li class="list-group-item">
+                    <a href="{{pokemon}}">{{ pokemon | capfirst }}</a>
+                    <li color:blue {{pokemon.name}}></li>
+                    <li color:blue {{pokemon.type}}></li>
+                    <li color:blue {{pokemon.weight}}></li>
+                    <li color:blue {{pokemon.height}}></li>
+                    <li color:blue {{pokemon.trainer}}></li>
+
+     
+                </li>
+                {% endfor %}
+            </ul>
+            <h3>Trainers</h3>
+            <li class="list-group-item">
+                {% for trainer in trainers %}
+                <a href="trainer/{{trainer.id}}">{{ trainer | capfirst }}</a>
+                <ul>
+                    <li color:blue {{trainer.name}}></li>
+                    <li color:blue {{trainer.surname}}></li>
+                    <li color:blue {{trainer.level}}></li>
+                    <li color:blue {{trainer.Birthdate}}></li>
+                </ul>
+    
+            </li>
+            {% endfor %}           
+            
+{% endblock content%}
+      

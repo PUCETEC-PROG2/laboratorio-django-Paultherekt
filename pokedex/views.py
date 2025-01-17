@@ -35,3 +35,4 @@ def trainer_details(request,trainer_id):
         'trainer': pokemon
     }
     return HttpResponse(template.render(context, request))
+

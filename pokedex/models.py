@@ -24,9 +24,12 @@ class Pokemon (models.Model):
    weight = models.DecimalField(decimal_places=2, max_digits=6)
    height = models.DecimalField(decimal_places=2, max_digits=6)
    trainer = models.ForeignKey(trainer,on_delete=models.SET_NULL, null=True)
+   picture= models.ImageField(upload_to="pokemon_images")
+
 
    def __str__(self):
         return self.name
    
+
 
 
