@@ -1,4 +1,8 @@
-.png (
-    with: 350px;
+.fluid {
+    width: 350px;
     height: auto;
-)
+}
+.pictures{
+    width: 100px;
+    height: auto;
+}

@@ -1,21 +1,20 @@
 {% extends "base.html" %}
-{% block title %}{{pokemon | capfirst}}{% endblock tittle %}
+{% block title %}{{pokemon.id | capfirst}}{%  endblock tittle %}
 {% block content %}
-<h1>Mi Pokedex</h1>
-        
-<p>Has elegido el pokemon: <strong {{ pokemon | capfirst }}></strong></p>
-<h3>Detalles del pokemon</h3>
-<ul>
-<li nombre:{{pokemon.name}}></li>
-<li Tipo:{{pokemon.type}}></li>
-<li Peso:{{pokemon.weight}}kg></li>
-<li height:{{pokemon.height}}cm></li>
-<li trainer:{{pokemon.trainer}}></li>
+<tittle>Pokedex</tittle>
 
-</ul>
+        <p>You have chosen Pokemon: <strong>{{pokemon | capfirst }}</strong></p>
+        <p>details</p>
+        <ul>
+            <li>name: {{pokemon.name}}</li>
+            <li>weight: {{pokemon.weight}}</li>
+            <li>type: {{pokemon.type}}</li>
+            <li>height: {{pokemon.height }}</li>
+            <li>trainer: {{pokemon.trainer}}</li>
 
-
-
+        </ul>
+        {% endfor %}
+    </div>
 
 {% endblock content%}
       

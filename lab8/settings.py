@@ -82,6 +82,7 @@ DATABASES = {
 }
 
 
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -133,3 +134,6 @@ MEDIA_DRL= "MEDIA/"
 MEDIA_ROOT= BASE_DIR/ 'MEDIA'
 
 
+LOGIN_REDIRECT = "/"
+LOGOUT_REDIRECT ="/"
+LOGIN_URL = "pokedex:login"
