@@ -23,6 +23,6 @@ class PokemonForm(forms.ModelForm):
             
         }
         
- class CustomLoginView(LoginView):  
+
         
         

@@ -1,7 +1,11 @@
 {% extends "base.html" %}
-{% block title %}{{pokemon.id | capfirst}}{%  endblock tittle %}
+{% load static %}
+{% block title %}{{pokemon.id | capfirst}}{%  endblock title %}
 {% block content %}
 <tittle>Pokedex</tittle>
+
+<link href="{% static "bootstrap.min.css" %}" rel="stylesheet"></link>
+<script src="https:cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
         <p>You have chosen Pokemon: <strong>{{pokemon | capfirst }}</strong></p>
         <p>details</p>

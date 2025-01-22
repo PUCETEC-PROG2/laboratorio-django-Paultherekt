@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% block title %}{{pokemon.id | capfirst}}{% "endblock tittle" %}
+{% load static %}
+{% block title %}{{pokemon.id | capfirst}}{%  endblock title %}
 {% block content %}
 <tittle>Pokedex</tittle>
 <link href="{% static "bootstrap.min.css" %}" rel="stylesheet"></link>
@@ -18,7 +19,7 @@
         </ul>
 
 
-    {% endfor %}
+    
     </div>
 
 {% endblock content%}

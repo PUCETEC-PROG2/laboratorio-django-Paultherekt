@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% block title %}Form for your Pokemon{% endblock tittle %}
+{% load static %}
+{% block title %}Form for your Pokemon{% endblock title %}
 {% block content %}
     <form method= "post" enctype= "multipart/form-data" >
         {% csrf_token %}

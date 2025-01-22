@@ -12,9 +12,9 @@
                 <img src="{% static "pokemon_title.png" %}" alt="Pokemon_logo" class="fluid"></img> 
             </div>
             {% if user.is_authenticated %}
-            <a href= "{% url "logout " %}">exit</a>
+                <a href= "{% url "logout " %}">exit</a>
             {% else %}
-                <a href"{%url "pokedex.login"%}">login</a>
+                <a href"{% url "pokedex.login"%}">login</a>
             {% endif %}
          {% block content %}{% endblock content %}
         </div>

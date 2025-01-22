@@ -1,17 +1,12 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Initial page{% endblock title %}
 {% block content %}
     <h3>Pokemons</h3>
     <ul class="list-group-item">
         {% for pokemon in pokemons %}
-        <li class="list-group-item">
-            <a href="{{pokemon}}">{{ pokemon | capfirst }}</a>
-            <li {{pokemon.name}}></li>
-            <li {{pokemon.type}}></li>
-            <li {{pokemon.weight}}></li>
-            <li {{pokemon.height}}></li>
-            <li {{pokemon.trainer}}></li>
-        </li>
+        
+        
         {% endfor %}
 
     {% if user.is_authenticated %}
@@ -21,7 +16,7 @@
         {% for pokemon in pokemons %}
         <div class ="col-sm-3">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{ pokemon.picture.url }}" alt="Card image cap">
+                <img class="card-img-top" src="{{ pokemon.picture.url }}" alt="Card image cap" class= "picture">
                 <div class="card-body">
                     <h5 class="card-title">{{pokemon | capfirst}}</h5>
                     <p class="card-text">Name{{pokemon.name}}</p>
@@ -45,13 +40,7 @@
     {% for trainer in trainers %}
     <li class="list-group-item">
     <a href="trainer/{{trainer.id}}">{{ trainer | capfirst }}</a>
-</ul>
-<ul class="List-group">
-        <li>{{trainer.name}}</li>
-        <li>{{trainer.surname}}</li>
-        <li>{{trainer.level}}</li>
-        <li>{{trainer.Birthdate}}</li>
-    </li>
+
     {% endfor %}
 </ul>
 

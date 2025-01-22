@@ -16,6 +16,7 @@ urlpatterns = [
     path("delete_pokemon/<int:pokemon_id>/", views.delete_pokemon, name="delete_pokemon"),
     path("login/", views.CustomLoginView.as_view, name="Login"),
     
-]
+    ]   
 
 urlpatterns += static(settings.MEDIA_DRL, document_root=settings.MEDIA_ROOT)
+

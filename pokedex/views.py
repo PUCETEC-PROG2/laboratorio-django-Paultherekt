@@ -75,4 +75,5 @@ def as_view(request):
             
         'form': form
      }
-        
+class CustomLoginView(LoginView):
+    template= loader.get_template('login_form.html')  

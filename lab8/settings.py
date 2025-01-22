@@ -137,3 +137,6 @@ MEDIA_ROOT= BASE_DIR/ 'MEDIA'
 LOGIN_REDIRECT = "/"
 LOGOUT_REDIRECT ="/"
 LOGIN_URL = "pokedex:login"
+
+
+
