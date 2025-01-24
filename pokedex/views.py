@@ -54,7 +54,7 @@ def trainer_details(request,trainer_id):
     return HttpResponse(template.render(context, request))
 @login_required
 def add_pokemon(request,pokemon_id):
-    pokemon= Pokemon.objects.all()
+    pokemon= Pokemon.objects.get(id=pokemon_id)
     if request.method=="POST":
         form= PokemonForm(request.POST, request.FILES)
         if form.is_valid():

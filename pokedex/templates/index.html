@@ -3,10 +3,11 @@
 {% block title %}Initial page{% endblock title %}
 {% block content %}
     <h3>Pokemons</h3>
-    <a href="{% url "pokedex:add_pokemon"%}">Add a pokemon<a>
     
+    <a href="{% url "pokedex:add_pokemon"%}" class= "btn btn-primary">Add pokemon<a>
     <div class="row"> 
         {% for pokemon in pokemons %}
+        
         <div class ="col-md-6">
             <link href= "{% static "bootstrap.min.css" %}" rel="stylesheet">
             <link href= "{% static "custom.css" %}"  rel="stylesheet">
@@ -14,6 +15,7 @@
             <div class="card pokemon-card" style="width: 18rem;">
                 <img class="card-img-top" src="{{ pokemon.picture.url }}" alt="Card image cap" class= "pictures">
                 <div class="card-body">
+                    
                     <h5 class="card-title">{{pokemon | capfirst}}</h5>
                     <p class="card-text">Type {{pokemon.type}}</p>
                     <a href="{{pokemon.id}}" class="btn btn-primary">
