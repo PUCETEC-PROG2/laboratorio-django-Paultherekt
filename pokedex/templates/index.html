@@ -3,31 +3,26 @@
 {% block title %}Initial page{% endblock title %}
 {% block content %}
     <h3>Pokemons</h3>
-    <ul class="list-group-item">
-        {% for pokemon in pokemons %}
-        
-        
-        {% endfor %}
-
-    {% if user.is_authenticated %}
     <a href="{% url "pokedex:add_pokemon"%}">Add a pokemon<a>
-    {% endif %}
+    
     <div class="row"> 
         {% for pokemon in pokemons %}
-        <div class ="col-sm-3">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{ pokemon.picture.url }}" alt="Card image cap" class= "picture">
+        <div class ="col-md-6">
+            <link href= "{% static "bootstrap.min.css" %}" rel="stylesheet">
+            <link href= "{% static "custom.css" %}"  rel="stylesheet">
+            <br>
+            <div class="card pokemon-card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ pokemon.picture.url }}" alt="Card image cap" class= "pictures">
                 <div class="card-body">
                     <h5 class="card-title">{{pokemon | capfirst}}</h5>
-                    <p class="card-text">Name{{pokemon.name}}</p>
                     <p class="card-text">Type {{pokemon.type}}</p>
-                    <a href="{{pokemon_id}}" class="btn btn-primary">
+                    <a href="{{pokemon.id}}" class="btn btn-primary">
                         <i class= "fa-solid fa-eye"></i>
                     </a>
-                    <a href="edit_pokemon/{{pokemon_id}}" class="btn btn-primary">
+                    <a href="{% url "pokedex:edit_pokemon"%}" class="btn btn-primary">
                         <i class= "fa-solid fa-pencil"></i>
                     </a>
-                    <a href="delete_pokemon/{{pokemon_id}}" class="btn btn-danger">
+                    <a href="{{delete_pokemon}}" class="btn btn-danger">
                         <i class= "fa-solid fa-trash"></i>
                     </a>
                 </div>
@@ -37,9 +32,20 @@
 </div>
 <h3>Trainers</h3>
 <ul class ="List-group">
+<div class="row">
     {% for trainer in trainers %}
-    <li class="list-group-item">
-    <a href="trainer/{{trainer.id}}">{{ trainer | capfirst }}</a>
+    <div class ="col-md-6">
+        <link href= "{% static "bootstrap.min.css" %}" rel="stylesheet">
+        <link href= "{% static "custom.css" %}"  rel="stylesheet">
+        <div class="card Trainer-card" style="width: 18rem;">
+         <a href="{% url "pokedex:edit_trainer"%}" class= "btn btn-primary"><i class= "fa-solid fa-pencil"></i></a>
+            <img class="card-img-left" src="{{trainer.picture.url}}" alt="Card image cap" class= "pictures">
+            <div class="card-body">
+                <h5 class="card-title">{{ trainer | capfirst}}</h5>
+                <a href="trainer/{{trainer.id}}">Trainer details</a>
+                <p class="card-text">Level {{trainer.level}}</p>
+
+  
 
     {% endfor %}
 </ul>

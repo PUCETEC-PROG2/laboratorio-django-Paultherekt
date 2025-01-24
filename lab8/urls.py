@@ -25,4 +25,4 @@ urlpatterns = [
     path("acounts/" , include("django.contrib.auth.urls"))
 ]
 
-urlpatterns += static(settings.MEDIA_DRL, Document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, Document_root=settings.MEDIA_ROOT)

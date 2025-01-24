@@ -5,6 +5,8 @@ class Trainer(models.Model):
     surname=models.CharField(max_length=30, null=False)
     Birthdate= models.DateField()
     level= models.IntegerField(default=1)
+    picture= models.ImageField(upload_to="trainer_images",default='trainer_images')
+   
     def __str__(self):
         return f"{self.name} {self.surname}"
     
