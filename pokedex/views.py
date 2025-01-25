@@ -34,13 +34,15 @@ def pokemon(request, pokemon_id):
     return HttpResponse(template.render(context, request))
     
 
-def edit_pokemon(request):
+def edit_pokemon(request,pokemon_id):
+    pokemon = Pokemon.objects.get(id= pokemon_id)
     if request.method == "POST":
-        form = PokemonForm(request.post,request.FILES)
+        form = PokemonForm(request.POST,request.FILES, instance=pokemon)
         if form.is_valid():
+            form.save()
             return redirect('pokedex:index')
     else:
-        form = PokemonForm()
+        form = PokemonForm(instance=pokemon)
     return render(request, 'pokemon_form.html' , {'form': form})
 
 
@@ -53,8 +55,7 @@ def trainer_details(request,trainer_id):
     }
     return HttpResponse(template.render(context, request))
 @login_required
-def add_pokemon(request,pokemon_id):
-    pokemon= Pokemon.objects.get(id=pokemon_id)
+def add_pokemon(request):
     if request.method=="POST":
         form= PokemonForm(request.POST, request.FILES)
         if form.is_valid():
@@ -77,17 +78,25 @@ class CustomLoginView(LoginView):
 
 def add_trainer(request):
     if request.method =="POST":
-        Form= Trainerform(request.POST,request.Files)
+        form= TrainerForm(request.POST,request.FILES)
         if form.is_valid():
            form.save() 
            return redirect('pokedex:index')
-       
-def edit_trainer(request):
-    if request.method == "POST":
-        form = TrainerForm(request.POST,request.FILES)
-        if form.is_valid():
-            return redirect('pokedex:index')
     else:
         form = TrainerForm()
+
+    return render(request, 'trainer_form.html', {'form':form})
+
+       
+def edit_trainer(request,trainer_id):
+    trainer= Trainer.objects.get(id=trainer_id)
+    if request.method == "POST":
+        form = TrainerForm(request.POST,request.FILES,instance=trainer)
+        if form.is_valid():
+            form.save()
+            return redirect('pokedex:index')
+    else:
+        form = TrainerForm(instance=trainer)
     return render(request, 'trainer_form.html' , {'form': form})
+    
 

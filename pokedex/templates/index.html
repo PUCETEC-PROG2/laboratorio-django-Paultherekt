@@ -21,7 +21,7 @@
                     <a href="{{pokemon.id}}" class="btn btn-primary">
                         <i class= "fa-solid fa-eye"></i>
                     </a>
-                    <a href="{% url "pokedex:edit_pokemon"%}" class="btn btn-primary">
+                    <a href="edit_pokemon/{{pokemon.id}}" class="btn btn-primary">
                         <i class= "fa-solid fa-pencil"></i>
                     </a>
                     <a href="{{delete_pokemon}}" class="btn btn-danger">
@@ -31,26 +31,38 @@
           </div>
     </div>
     {% endfor %}
-</div>
-<h3>Trainers</h3>
-<ul class ="List-group">
-<div class="row">
-    {% for trainer in trainers %}
-    <div class ="col-md-6">
-        <link href= "{% static "bootstrap.min.css" %}" rel="stylesheet">
-        <link href= "{% static "custom.css" %}"  rel="stylesheet">
-        <div class="card Trainer-card" style="width: 18rem;">
-         <a href="{% url "pokedex:edit_trainer"%}" class= "btn btn-primary"><i class= "fa-solid fa-pencil"></i></a>
-            <img class="card-img-left" src="{{trainer.picture.url}}" alt="Card image cap" class= "pictures">
-            <div class="card-body">
-                <h5 class="card-title">{{ trainer | capfirst}}</h5>
-                <a href="trainer/{{trainer.id}}">Trainer details</a>
-                <p class="card-text">Level {{trainer.level}}</p>
 
-  
 
-    {% endfor %}
-</ul>
 
-{% endblock content %}
-           
+
+    <h3>Trainers</h3>
+
+    <a href="{%url "pokedex:add_trainer" %}" class="btn btn-success">Add Trainer</a>
+   
+    <div class="row">
+        {% for trainer in trainers %}
+       
+        
+        <div class ="col-md-6">
+            <link href= "{% static "bootstrap.min.css" %}" rel="stylesheet">
+            <link href= "{% static "custom.css" %}"  rel="stylesheet">
+            <br>
+            
+            <div class="card Trainer-card" style="width: 18rem;">
+            
+                <img class="card-img-left" src="{{trainer.picture.url}}" alt="Card image cap" class= "pictures">
+                <a href="edit_Trainer/{{trainer_id}}" class= "btn btn-primary"><i class= "fa-solid fa-pencil"></i></a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ trainer | capfirst}}</h5>
+                    <a href="trainer/{{trainer.id}}">Trainer details</a>
+                    <p class="card-text">Level {{trainer.level}}</p>
+
+                </div>    
+            </div>
+        </div>
+    </div>
+        {% endfor %}
+
+
+    {% endblock content %}
+            

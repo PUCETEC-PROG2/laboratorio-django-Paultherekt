@@ -6,7 +6,7 @@ class Trainer(models.Model):
     Birthdate= models.DateField()
     level= models.IntegerField(default=1)
     picture= models.ImageField(upload_to="trainer_images",default='trainer_images')
-   
+    
     def __str__(self):
         return f"{self.name} {self.surname}"
     
@@ -24,7 +24,7 @@ class Pokemon (models.Model):
    type = models.CharField(max_length=30, choices=POKEMON_TYPES, null=False)
    weight = models.DecimalField(decimal_places=2, max_digits=6)
    height = models.DecimalField(decimal_places=2, max_digits=6)
-   Trainer = models.ForeignKey(Trainer,on_delete=models.SET_NULL, null=True)
+   trainer = models.ForeignKey(Trainer,on_delete=models.SET_NULL, null=True)
    picture= models.ImageField(upload_to="pokemon_images",default='pokemon_images')
 
 
