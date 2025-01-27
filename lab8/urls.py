@@ -22,7 +22,7 @@ from lab8 import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pokedex.urls')),
-    path("acounts/" , include("django.contrib.auth.urls"))
+    path("acounts/" , include("django.contrib.auth.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, Document_root=settings.MEDIA_ROOT)

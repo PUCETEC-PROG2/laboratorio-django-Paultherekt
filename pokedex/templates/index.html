@@ -5,7 +5,9 @@
     <h3>Pokemons</h3>
     
     <a href="{% url "pokedex:add_pokemon"%}" class= "btn btn-primary">Add pokemon<a>
+    <div class="container">
     <div class="row"> 
+
         {% for pokemon in pokemons %}
         
         <div class ="col-md-6">
@@ -24,11 +26,13 @@
                     <a href="edit_pokemon/{{pokemon.id}}" class="btn btn-primary">
                         <i class= "fa-solid fa-pencil"></i>
                     </a>
-                    <a href="{{delete_pokemon}}" class="btn btn-danger">
+                    <a href="delete_pokemon/{{pokemon.id}}" class="btn btn-danger">
                         <i class= "fa-solid fa-trash"></i>
                     </a>
                 </div>
           </div>
+        </div>
+    </div>
     </div>
     {% endfor %}
 
@@ -51,7 +55,7 @@
             <div class="card Trainer-card" style="width: 18rem;">
             
                 <img class="card-img-left" src="{{trainer.picture.url}}" alt="Card image cap" class= "pictures">
-                <a href="edit_Trainer/{{trainer_id}}" class= "btn btn-primary"><i class= "fa-solid fa-pencil"></i></a>
+                <a href="edit_trainer/{{trainer.id}}" class= "btn btn-primary"><i class= "fa-solid fa-pencil"></i></a>
                 <div class="card-body">
                     <h5 class="card-title">{{ trainer | capfirst}}</h5>
                     <a href="trainer/{{trainer.id}}">Trainer details</a>
